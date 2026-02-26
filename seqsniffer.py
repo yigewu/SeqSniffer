@@ -65,9 +65,9 @@ def main():
     print("-" * 40)
 
     # The Decision Logic
-    if percent_mapped >= 60.0:
+    if percent_mapped >= 50.0:
         print(">>> CONCLUSION: RNA-seq Detected (High Transcriptome Overlap) <<<")
-    elif percent_mapped <= 45.0:
+    elif percent_mapped <= 30.0:
         print(">>> CONCLUSION: DNA-seq Detected (Low Transcriptome Overlap) <<<")
     else:
         print(">>> CONCLUSION: Ambiguous / Targeted Exome Panel (Manual Review Required) <<<")

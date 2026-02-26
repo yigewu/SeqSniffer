@@ -9,7 +9,7 @@ Standard short-read alignment algorithms struggle to accurately map splice-junct
 SeqSniffer bypasses this by utilizing a **Protein-Coding Transcriptome Mapping Rate Heuristic**. By mapping reads exclusively against a lightweight, protein-coding transcriptome FASTA (~35MB) using `minimap2` without strict MAPQ penalties, we establish two distinct empirical baselines:
 
 * **WGS DNA-seq (The Noise Floor):** While coding exons make up only ~2% of the genome, running a fast, unpenalized alignment against a transcriptome allows WGS reads from repetitive elements, UTRs, and pseudogenes to multi-map. By restricting the reference strictly to *protein-coding* transcripts, we suppress non-coding noise and establish a baseline WGS mapping rate of **< 30%**. 
-* **RNA-seq (The Target):** RNA-seq specifically targets transcribed exons. Therefore, true RNA-seq reads will successfully map to a protein-coding transcriptome reference at a rate of **> 60%**.
+* **RNA-seq (The Target):** RNA-seq specifically targets transcribed exons. Therefore, true RNA-seq reads will successfully map to a protein-coding transcriptome reference at a rate of **> 50%**.
 
 By evaluating this massive delta, SeqSniffer classifies the assay type instantly without requiring massive 3GB whole-genome indexes or hours of compute time.
 
