@@ -1,0 +1,11 @@
+# Ignore raw data and reference files
+*.fastq
+*.fastq.gz
+*.fa
+*.fa.gz
+*.sam
+*.bam
+
+# Ignore python cache
+__pycache__/
+*.pyc
