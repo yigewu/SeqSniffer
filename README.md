@@ -19,7 +19,7 @@ Clone the repository and set up the `conda` environment using the provided YAML 
 
 ```bash
 # Clone the repository
-git clone [https://github.com/YourUsername/SeqSniffer.git](https://github.com/YourUsername/SeqSniffer.git)
+git clone [https://github.com/yigewu/SeqSniffer.git](https://github.com/yigewu/SeqSniffer.git)
 cd SeqSniffer
 
 # Create and activate the conda environment
@@ -71,19 +71,31 @@ Bash
 
 The tool will stream the alignment directly into memory (avoiding heavy I/O disk writes) and output a classification based on empirical thresholds.
 
-Plaintext
-
+For the WGS file:
 ```
 [*] Sniffing sequence data: test_data/test_dna.fastq
 [*] Using transcriptome reference: test_data/transcriptome.fa
 [*] Running minimap2 alignment in memory (this will take a few seconds)...
 
 ----------------------------------------
-Total Reads Parsed:  100,000
-Mapped to Ref:       15,550
-Mapping Rate:        15.55%
+Total Reads Parsed:  100,882
+Mapped to Ref:       20,021
+Mapping Rate:        19.85%
 ----------------------------------------
 >>> CONCLUSION: DNA-seq Detected (Low Transcriptome Overlap) <<<
+```
+For the RNA-seq file:
+```
+[*] Sniffing sequence data: test_data/test_rna.fastq
+[*] Using transcriptome reference: test_data/transcriptome.fa
+[*] Running minimap2 alignment in memory (this will take a few seconds)...
+
+----------------------------------------
+Total Reads Parsed:  100,151
+Mapped to Ref:       69,225
+Mapping Rate:        69.12%
+----------------------------------------
+>>> CONCLUSION: RNA-seq Detected (High Transcriptome Overlap) <<<
 ```
 
 ## Empirical Validation
