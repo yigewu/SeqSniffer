@@ -113,3 +113,14 @@ SeqSniffer was stress-tested against highly aneuploid cancer cell lines (CCLE) a
 _Decision Thresholds:_ The tool safely categorizes files `> 50%` as RNA-seq and `< 30%` as WGS.
 
 **Known Limitations:** This heuristic is designed specifically to separate Whole Genome Sequencing (WGS) from RNA-seq. Whole Exome Sequencing (WES) utilizes capture probes targeting coding regions. Consequently, WES data natively maps to the transcriptome reference at a high rate and will be flagged as RNA-seq by this tool.
+
+### Running on your own data
+
+For the fastest results on your own datasets, it is highly recommended to subsample your FASTQ to 100,000 reads. You can do this easily using `seqtk` or standard Unix tools:
+
+```bash
+# Subsample the first 100k reads (400k lines)
+head -n 400000 my_data.fastq > subsampled.fastq
+
+# Run SeqSniffer
+./seqsniffer.py --input subsampled.fastq --ref test_data/transcriptome.fa
